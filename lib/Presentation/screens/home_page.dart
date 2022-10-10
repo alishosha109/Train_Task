@@ -116,91 +116,88 @@ Widget cardWidget(height, width, index, alltrips) {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                child: Stack(
-                  children: [
-                    Container(
+            SizedBox(
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "$baseImageUrl/${alltrips[index].featuredImage}"),
+                            fit: BoxFit.cover),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(7))),
+                    height: height * 0.17,
+                    width: width * 0.8,
+                  ),
+                  Positioned(
+                      top: 8,
+                      left: 8,
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.4),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(7))),
+                            height: height * 0.045,
+                            width: width * 0.3,
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              "$baseImageUrl/${alltrips[index].tag.icon}"),
+                                          fit: BoxFit.cover),
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(7))),
+                                  height: 25,
+                                  width: 25,
+                                ),
+                              ),
+                              Text(
+                                "${alltrips[index].tag.title}",
+                                style: TextStyle(
+                                    fontFamily: 'poppin',
+                                    fontWeight: FontWeight.bold),
+                              )
+                              // Icon(Icons.sports)
+                            ],
+                          )
+                        ],
+                      )),
+                  Positioned(
+                    left: 8,
+                    bottom: 8,
+                    child: Container(
+                      // ignore: sort_child_properties_last
+                      child: Center(
+                          child: Text(
+                        alltrips[index].spots != 0
+                            ? "${alltrips[index].spots} Spots Left"
+                            : "Infinite Spots",
+                        style: TextStyle(
+                            fontFamily: 'poppin',
+                            color: Colors.orange,
+                            fontWeight: FontWeight.bold),
+                      )),
                       decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  "$baseImageUrl/${alltrips[index].featuredImage}"),
-                              fit: BoxFit.cover),
+                          color: Colors.white.withOpacity(0.8),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(7))),
-                      height: height * 0.17,
-                      width: width * 0.8,
+                      height: height * 0.045,
+                      width: width * 0.3,
                     ),
-                    Positioned(
-                        top: 8,
-                        left: 8,
-                        child: Stack(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.4),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(7))),
-                              height: height * 0.045,
-                              width: width * 0.3,
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                "$baseImageUrl/${alltrips[index].tag.icon}"),
-                                            fit: BoxFit.cover),
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(7))),
-                                    height: 25,
-                                    width: 25,
-                                  ),
-                                ),
-                                Text(
-                                  "${alltrips[index].tag.title}",
-                                  style: TextStyle(
-                                      fontFamily: 'poppin',
-                                      fontWeight: FontWeight.bold),
-                                )
-                                // Icon(Icons.sports)
-                              ],
-                            )
-                          ],
-                        )),
-                    Positioned(
-                      left: 8,
-                      bottom: 8,
-                      child: Container(
-                        // ignore: sort_child_properties_last
-                        child: Center(
-                            child: Text(
-                          alltrips[index].spots != 0
-                              ? "${alltrips[index].spots} Spots Left"
-                              : "Infinite Spots",
-                          style: TextStyle(
-                              fontFamily: 'poppin',
-                              color: Colors.orange,
-                              fontWeight: FontWeight.bold),
-                        )),
-                        decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.8),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(7))),
-                        height: height * 0.045,
-                        width: width * 0.3,
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0),
+              padding: const EdgeInsets.only(left: 8.0, top: 5),
               child: Text(
                 "${day_name}, ${date.day} ${monthAbbr} · ${format.format(dt)}",
                 style: TextStyle(
@@ -216,7 +213,9 @@ Widget cardWidget(height, width, index, alltrips) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0),
+              padding: const EdgeInsets.only(
+                left: 8.0,
+              ),
               child: Text(
                 "${alltrips[index].placeName}",
                 style: TextStyle(
