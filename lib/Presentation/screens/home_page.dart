@@ -234,7 +234,7 @@ Widget cardWidget(height, width, index, alltrips) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
