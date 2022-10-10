@@ -142,8 +142,8 @@ Widget cardWidget(height, width, index, alltrips) {
                                   color: Colors.white.withOpacity(0.4),
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(7))),
-                              height: 30,
-                              width: 110,
+                              height: height * 0.045,
+                              width: width * 0.3,
                             ),
                             Row(
                               children: [
@@ -191,8 +191,8 @@ Widget cardWidget(height, width, index, alltrips) {
                             color: Colors.white.withOpacity(0.8),
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(7))),
-                        height: 30,
-                        width: 110,
+                        height: height * 0.045,
+                        width: width * 0.3,
                       ),
                     )
                   ],
